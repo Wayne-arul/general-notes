@@ -1,0 +1,59 @@
+Prompt engineering is crafting ideal input to get the best out if the LLM.
+
+Example LLMs
+Text:
+1. Gpt 1,2,3
+2. Jurassic
+3. GPT-J
+
+Image:
+Dall-E
+Stable diffusion
+Mid journey
+
+Token:
+Its a small unit of text that the AI models use to process and generate language. 
+We do tokenization, so that the model can process it efficiently.
+During training, the model learns patterns and relation between the tokens. This would be hard if i had to learn the entire sentence as a single token.
+
+
+LLM:
+Basically LLM is a type of AI designed to understand and generate human-like text.
+Takes an input and produces a token as output.
+ 
+Chatgpt is unique due to its converstional nature.
+
+Giving the instruction of a task directly without giving any example is called zero shot learning.
+
+
+GPT-3:
+an ecosystem of language models. 
+
+Stop sequence -> \n
+This indicates the end o an example.
+
+
+Few shot learning:
+A method for training a model to do specific task.
+
+
+Dall-e:
+Created by openai
+Tranformer based
+Trained on millions of images
+
+Mid Journey:
+extremly powerful
+uses discord interface.
+
+
+Fine tuning:
+It requires many examples.
+It allows you to get more out of a model.
+It takes less tokens in the prompt.
+
+
+Responsible AI:
+Verify the output.
+
+Bias -> means refers to the presence of systematic favouritsm.
