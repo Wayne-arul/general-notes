@@ -1,0 +1,94 @@
+Discriminative models: do classification, predication. trained on labeled data. includes ANN, CNN, LSTM etc.
+
+Generative models: two types. i) gen language models ii)gen image models.
+
+Generative language models:
+Chatgpt is a gen language model.
+here we dont do classification or predication. WHereas we genertate a new data like text , image, video etc. 
+For eg. If i trained a gen model with a large music dataset, it can able to generate its own music.
+
+In generative AI, it just try to find the relation between the distribution of data.
+It will learn patterns and distribution in unstructured data.
+
+when we give a large set of music data to discriminative model and train it, it can able to classify what kind of music it is. (rock, romance, classical etc)
+
+when we give a large set of music data to generative ai model and train it, it can able generate its very own music itself. 
+
+LLM is trained deep learning model that understands amd generate human text in a human like fashion.
+LLMs are based on Transformer, which is a type of neural network invented by google.
+Transformer architecture is very powerful bcuz it allows us to train the model on a massive text datasets.
+LLMs are called large bcuz of the size and complexity of the neural network.
+
+
+The text input we give it to the LLM is called prompt and this whole art is known as prompt design.(figuring out how to write and format prompt text to get the desired output).
+
+Zero shot learning:
+It is a type of approach where we pass a single instruction to the LLM, to take on a behavior. For eg : Explain what is Quantum physics to me like I'm a five years old.
+
+Few shot learning:
+Here we also add examples with the prompt. Eg. Translate text from english to tamil. Im giving some exmaples. 1) Water - thanni, 2) Phone - alaipesi. 
+
+
+Langchain is a framework that help us to build applications using LLMs.
+
+
+Why we go for langchain?
+If we use general chatgpt openai api and used it, we could only able to get the result upto sept 2022. And we have no access to realtime knwoledge and private data sources.
+
+In langchain we can use open source LLMs from Huggingface , bloom etc. For that we dont have to pay. As well as we can integrate wikipedia api also we can use our own data sources. etc. 
+
+
+
+The temperature parameter is used to set the randomness of the output. 
+0 - it is very safe and give the exact thing but not creative.
+1 - it is riskier, there might be wrong output also, but very creative.
+
+Prompt Template:
+In LLMs we dont pass the input directly. Rather than we give it to a template,then the template will passed to LLM. 
+
+
+Chains:
+Chains are used to link the model(LLM eg.gpt) and the Prompt Template as well as other chains.
+The LLMChain is the common type of chain used. For every Prompt template we will have a LLMchain separately.
+
+
+Sequential Chain:
+These are used to combine multiple chains. Eg.
+
+"""
+prompt_template_name = PromptTemplate(
+    input_variables =['cuisine'],
+    template = "I want to open a restaurant for {cuisine} food. Suggest a fency name for this."
+)
+
+name_chain =LLMChain(llm=llm, prompt=prompt_template_name)
+
+prompt_template_items = PromptTemplate(
+    input_variables = ['restaurant_name'],
+    template="""Suggest some menu items for {restaurant_name}"""
+)
+
+food_items_chain = LLMChain(llm=llm, prompt=prompt_template_items)
+from langchain.chains import SimpleSequentialChain
+chain = SimpleSequentialChain(chains = [name_chain, food_items_chain])
+
+content = chain.run("Pakistani")
+print(content)
+"""
+
+There is another thing called simple sequential chain. This will only give the output of the last chain.
+
+Agent - it has access to a suite of tools and find which one to use, depending on user input. Tools include google search, math etc. Agent uses all these tools and LLM reasoning capability to perform tasks.
+
+
+ConversationBufferMemory:
+It is used to store our previous conversations. This conversation buffer has no limit and saves every conversation. To limit the no.of conversation to store in conversation buffer, we use Conversation Chain.
+
+Lets say if you just want to save every last 5 searches. You can use conversation buffer window memory to store it. 
+
+
+
+
+
+
+
